@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Carousel</title>
+    <!-- Seus estilos CSS e outras meta informações aqui -->
+</head>
+<body>
+
+<div class="carousel">
+    <img src="slide1.jpg">
+    <img src="slide2.jpg">
+    <img src="slide3.jpg">
+</div>
+
+<button onclick="plusDivs(-1)">Anterior</button>
+<button onclick="plusDivs(1)">Próximo</button>
+
+<script>
+let slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  let slides = document.querySelectorAll('.carousel img');
+  
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+  
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  
+  slides[slideIndex - 1].style.display = "block";
+}
+</script>
+
+</body>
+</html>
